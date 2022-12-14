@@ -1,4 +1,4 @@
 #! /bin/sh
 
-docker build -t bitcoin-fuzzing .
+docker build -t bitcoin-testing .
 

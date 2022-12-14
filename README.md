@@ -1,14 +1,18 @@
-# bitcoin-fuzzing-on-docker
-
-I use macOS for by Bitcoin Core development. I've found fuzzing to be hard to run on mac. This repo contains a simple set of scripts so you don't have to constantly fiddle with docker.
+# bitcoin-testing-on-docker
 
 Steps:
 
 * Build the docker image: `./build-image.sh`
-* Export `$BITCOIN_REPO` and `$QA_ASSETS_REPO` in your shell and point them to the [bitcoin core](https://github.com/bitcoin/bitcoin) repository and the [qa-assets](https://github.com/bitcoin-core/qa-assets) repository locally.
-* Run the docker container: `./run_container.sh`. You can now build and run in ubuntu. In that container, you'll find bitcoin core in `/bitcoin` and qa-assets in `/qa-assets`.
+* Export `$BITCOIN_REPO` in your shell and point them to the [bitcoin core](https://github.com/bitcoin/bitcoin) repository locally.
+* Run the docker container: `./run-container.sh`. You can now build and run in ubuntu. In that container, you'll find bitcoin core in `/bitcoin`.
 
 ### Other useful commands
+
+#### miscellaneous
+https://beenje.github.io/blog/posts/dockerfile-anti-patterns-and-best-practices/
+`sudo docker images` to see all images
+`git clone -b bip324-enable-4 https://github.com/stratospher/bitcoin-core-ci.git`
+`make -j "$(($(nproc)+1))"`
 
 #### Configure to run an optimized fuzzer build
 `CC=clang CXX=clang++ ./configure --enable-fuzz --with-sanitizers=address,fuzzer,undefined`

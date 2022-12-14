@@ -1,32 +1,31 @@
-FROM ubuntu:focal
+FROM quay.io/centos/centos:stream8
 
-RUN apt update
-RUN apt -y dist-upgrade
-RUN apt install -y git
-RUN apt install -y sudo
-RUN apt install -y vim
-RUN apt install -y build-essential
-RUN apt install -y libtool
-RUN apt install -y autotools-dev
-RUN apt install -y automake
-RUN DEBIAN_FRONTEND=noninteractive apt install -y pkg-config
-RUN apt install -y bsdmainutils
-RUN apt install -y python3
-RUN apt install -y libevent-dev
-RUN apt install -y libboost-dev
-RUN apt install -y libboost-system-dev
-RUN apt install -y libboost-filesystem-dev
-RUN apt install -y libboost-test-dev
-RUN apt install -y libboost-all-dev
-RUN apt install -y libsqlite3-dev
-RUN apt install -y libminiupnpc-dev
-RUN apt install -y libnatpmp-dev
-RUN apt install -y libzmq3-dev
-RUN apt install -y clang
-RUN apt install -y libdb++-dev
-RUN apt install -y libdb-dev
-RUN apt install -y lldb
-RUN apt install -y libssl-dev
+RUN yum update -y
+RUN yum install -y sudo
+RUN yum install -y git
+RUN yum install -y gcc-c++
+RUN yum install -y glibc-devel.x86_64
+RUN yum install -y libstdc++-devel.x86_64
+RUN yum install -y glibc-devel.i686
+RUN yum install -y libstdc++-devel.i686
+#RUN yum install -y ccache
+RUN yum install -y libtool
+RUN yum install -y make
+RUN yum install -y python3
+RUN yum install -y python3-pip
+RUN yum install -y which
+RUN yum install -y patch
+#RUN yum install -y lbzip2
+RUN yum install -y xz
+RUN yum install -y procps-ng
+#RUN yum install -y dash
+RUN yum install -y rsync
+#RUN yum install -y coreutils
+RUN yum install -y bison
+RUN yum install -y boost
+RUN yum install boost-devel.x86_64
+RUN yum install -y libevent-devel
+RUN yum clean all
 
-RUN mkdir -p /bitcoin /qa-assets /bitcoin-seeder
+RUN mkdir -p /bitcoin
 
