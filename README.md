@@ -9,10 +9,10 @@ Steps:
 ### Other useful commands
 
 #### miscellaneous
-https://beenje.github.io/blog/posts/dockerfile-anti-patterns-and-best-practices/
-`sudo docker images` to see all images
-`git clone -b bip324-enable-4 https://github.com/stratospher/bitcoin-core-ci.git`
-`make -j "$(($(nproc)+1))"`
+- https://beenje.github.io/blog/posts/dockerfile-anti-patterns-and-best-practices/
+- `sudo docker images` to see all images
+- `git clone -b bip324-enable-4 https://github.com/stratospher/bitcoin-core-ci.git`
+- `make -j "$(($(nproc)+1))"`
 
 #### Configure to run an optimized fuzzer build
 `CC=clang CXX=clang++ ./configure --enable-fuzz --with-sanitizers=address,fuzzer,undefined`
